@@ -4,7 +4,6 @@ function Task({ text, category, onDelete }) {
 
   const handleClick = () => {
     onDelete(text)
-    console.log(text);
   }
 
   return (

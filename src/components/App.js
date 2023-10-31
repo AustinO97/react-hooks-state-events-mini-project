@@ -16,12 +16,16 @@ function App() {
     setTasks(filterDelete)
   }
 
+  const visibleTasks = tasks.filter(
+    (task) => category === "All" || task.category === category
+  )
+
   return (
     <div className="App">
       <h2>My tasks</h2>
-      <CategoryFilter />
-      <NewTaskForm />
-      <TaskList tasks={tasks} onDelete={handleDelete} />
+      <CategoryFilter categories={CATEGORIES} selectedCategory={category} onSetCategory={setCategory} />
+      <NewTaskForm categories={CATEGORIES} />
+      <TaskList tasks={visibleTasks} onDelete={handleDelete} />
     </div>
   );
 }
